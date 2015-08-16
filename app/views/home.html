@@ -13,7 +13,7 @@
     <br/>
     <div class="row">
         <figure class="col-xs-6 col-md-3" ng-repeat="pin in pins | filter:category">
-            <a href="#" class="thumbnail">
+            <a ng-href="{{pin.URL}}" class="thumbnail" data-lightbox="{{pin.URL}}" data-title="{{pin.Name}}">
                 <img ng-src="{{pin.URL}}" alt="{{pin.Name}}">
             </a>
             <figcaption>{{pin.Name}}</figcaption>

@@ -9,6 +9,7 @@
   "dependencies": {
     "angular": "~1.4.4",
     "angular-route": "~1.4.4",
-    "everlive": "~1.5.4"
+    "everlive": "~1.5.4",
+    "lightbox2": "~2.8.1"
   }
 }

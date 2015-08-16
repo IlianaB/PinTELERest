@@ -23,9 +23,14 @@
             <div class="row">
                 <figure class="col-sm-6 col-md-3" ng-repeat="pin in pins | filter:category">
                     <div class="thumbnail">
-                        <img ng-src="{{pin.URL}}" alt="{{pin.Name}}">
+                        <a ng-href="{{pin.URL}}" class="thumbnail" data-lightbox="{{pin.URL}}"
+                           data-title="{{pin.Name}}">
+                            <img ng-src="{{pin.URL}}" alt="{{pin.Name}}">
+                        </a>
+
                         <div class="caption">
                             <h3>{{pin.Name}}</h3>
+
                             <p><a href="#/editpin/{{pin.Id}}" class="btn btn-primary" role="button">Edit</a></p>
                         </div>
                     </div>
