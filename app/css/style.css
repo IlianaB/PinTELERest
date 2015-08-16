@@ -2,3 +2,7 @@
 .dashboard .thumbnail > img {
     height: 200px;
 }
+
+.welcome {
+    line-height: 34px;
+}

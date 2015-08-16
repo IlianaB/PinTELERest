@@ -24,6 +24,10 @@
                     <button class="btn btn-default">Login</button>
                 </form>
             </div>
+
+            <div ng-show="logged" class="navbar-form navbar-right">
+                <p class="welcome">Hello, {{name}}</p>
+            </div>
         </div>
     </nav>
 
