@@ -1,3 +1,4 @@
-.thumbnail>img {
+.home .thumbnail > img,
+.dashboard .thumbnail > img {
     height: 200px;
 }

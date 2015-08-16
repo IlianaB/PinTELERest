@@ -8,5 +8,8 @@ myApp.config(function($routeProvider) {
         .when('/dashboard', {
             templateUrl: 'views/dashboard.html'
         })
+        .when('/addpin', {
+            templateUrl: 'views/addPin.html'
+        })
         .otherwise({redirectTo: '/home'});
 });
