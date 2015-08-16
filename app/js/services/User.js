@@ -28,6 +28,22 @@ myApp.factory('User', ['$q', 'Backend', function ($q, Backend) {
                 });
 
             return deferred.promise;
+        },
+
+        create: function (name, displayName, email, password) {
+            var deferred = $q.defer();
+
+            Backend.el.Users.register(name, password, {
+                Email: email,
+                DisplayName: displayName
+            })
+                .then(function (data) {
+                    deferred.resolve(data);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
         }
     }
 }]);

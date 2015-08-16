@@ -1,0 +1,50 @@
+<div class="container" ng-controller="RegisterController">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3>Register</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <form class="form-horizontal" ng-submit="createUser()">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group row">
+                                <label for="username" class="col-sm-2 control-label">Username</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="username" placeholder="Enter your username" ng-model="username">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="displayName" class="col-sm-2 control-label">Display Name</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="displayName" placeholder="Enter your display name" ng-model="displayName">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-2 control-label">Email</label>
+
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" ng-model="email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="password" class="col-sm-2 control-label">Password</label>
+
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="password" placeholder="Enter your password" ng-model="password">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

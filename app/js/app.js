@@ -14,5 +14,8 @@ myApp.config(function($routeProvider) {
         .when('/editpin/:id', {
             templateUrl: 'views/editPin.html'
         })
+        .when('/register', {
+            templateUrl: 'views/register.html'
+        })
         .otherwise({redirectTo: '/home'});
 });
