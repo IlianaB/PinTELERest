@@ -14,7 +14,16 @@ myApp.factory('User', ['$q', 'Backend', function ($q, Backend) {
         },
 
         logout: function () {
-            Backend.el.Authentication.clearAuthorization();
+            var deferred = $q.defer();
+
+            Backend.el.Authentication.logout()
+                .then(function (data) {
+                    deferred.resolve(data);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
         },
 
         getCurrentUser: function () {

@@ -10,8 +10,12 @@ myApp.controller('MainController', ['$scope', 'User', function ($scope, User) {
     };
 
     $scope.logout = function () {
-        User.logout();
-        $scope.logged = false;
-        $scope.$parent.currentUserId = null;
+        User.logout()
+            .then(function () {
+                $scope.logged = false;
+                $scope.$parent.currentUserId = null;
+            }, function (error) {
+                console.log(error);
+            });
     }
 }]);
