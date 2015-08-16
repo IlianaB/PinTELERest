@@ -14,6 +14,8 @@ myApp.controller('MainController', ['$scope', 'User', function ($scope, User) {
             .then(function () {
                 $scope.logged = false;
                 $scope.$parent.currentUserId = null;
+                $scope.name = '';
+                $scope.password = '';
             }, function (error) {
                 console.log(error);
             });
