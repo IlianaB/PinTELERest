@@ -26,7 +26,11 @@
             </div>
 
             <div ng-show="logged" class="navbar-form navbar-right">
-                <p class="welcome">Hello, {{name}}</p>
+                <p class="welcome">
+                    Hello, {{name}}
+                    &nbsp;|&nbsp;
+                    <a href="#/home" ng-click="logout()">Logout</a>
+                </p>
             </div>
         </div>
     </nav>
