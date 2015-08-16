@@ -5,11 +5,11 @@ myApp.factory('Pin', ['$q', 'Backend', function ($q, Backend) {
         getAll: function () {
             var deferred = $q.defer();
 
-                pin.get().then(function (data) {
-                    deferred.resolve(data);
-                }, function (error) {
-                    deferred.reject(error);
-                });
+            pin.get().then(function (data) {
+                deferred.resolve(data);
+            }, function (error) {
+                deferred.reject(error);
+            });
 
             return deferred.promise;
         },
@@ -21,6 +21,19 @@ myApp.factory('Pin', ['$q', 'Backend', function ($q, Backend) {
             filter.where().eq('Owner', userId);
 
             pin.get(filter)
+                .then(function (data) {
+                    deferred.resolve(data);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
+        },
+
+        getById: function (pinId) {
+            var deferred = $q.defer();
+
+            pin.getById(pinId)
                 .then(function (data) {
                     deferred.resolve(data);
                 }, function (error) {
@@ -42,6 +55,23 @@ myApp.factory('Pin', ['$q', 'Backend', function ($q, Backend) {
             }, function (error) {
                 deferred.reject(error);
             });
+
+            return deferred.promise;
+        },
+
+        update: function (id, name, url, category) {
+            var deferred = $q.defer();
+
+            pin.update({
+                'Name': name,
+                'URL': url,
+                'Category': category
+            }, { Id: id })
+                .then(function (data) {
+                    deferred.resolve(data);
+                }, function (error) {
+                    deferred.reject(error);
+                });
 
             return deferred.promise;
         }
