@@ -11,4 +11,13 @@ myApp.controller('DashboardController', ['$scope', '$location', 'Pin', function 
         }, function (error) {
             console.log(error);
         });
+
+    $scope.deletePin = function (pinId) {
+        Pin.delete(pinId)
+            .then(function () {
+                $location.path('/home');
+            }, function (error) {
+                console.log(error);
+            });
+    }
 }]);

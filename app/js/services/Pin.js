@@ -66,7 +66,20 @@ myApp.factory('Pin', ['$q', 'Backend', function ($q, Backend) {
                 'Name': name,
                 'URL': url,
                 'Category': category
-            }, { Id: id })
+            }, {Id: id})
+                .then(function (data) {
+                    deferred.resolve(data);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
+        },
+
+        delete: function (pinId) {
+            var deferred = $q.defer();
+
+            pin.destroySingle({Id: pinId})
                 .then(function (data) {
                     deferred.resolve(data);
                 }, function (error) {
