@@ -1,0 +1,22 @@
+<div class="container" ng-controller="HomeController">
+    <div class="row show-grid">
+        <div class="col-md-3">
+            <label for="filter">Choose category:</label>
+            <select ng-model="category" id="filter" class="form-control">
+                <option value="">All</option>
+                <option value="Animals">Animals</option>
+                <option value="Nature">Nature</option>
+                <option value="Urban">Urban</option>
+            </select>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <figure class="col-xs-6 col-md-3" ng-repeat="pin in pins | filter:category">
+            <a href="#" class="thumbnail">
+                <img ng-src="{{pin.URL}}" alt="{{pin.Name}}">
+            </a>
+            <figcaption>{{pin.Name}}</figcaption>
+        </figure>
+    </div>
+</div>

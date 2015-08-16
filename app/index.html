@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="MainController">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="#/home">Home</a></li>
+                <li ng-hide="logged"><a href="#/register">Register</a></li>
+                <li ng-show="logged"><a href="#/dashboard">Dashboard</a></li>
+                <li ng-show="logged"><a href="#/profile">Profile</a></li>
+            </ul>
+
+            <div ng-hide="logged" class="navbar-form navbar-right">
+                <form id="loginForm" ng-submit="login()">
+                    <input type="text" placeholder="Username" ng-model="name" class="form-control" />
+                    <input type="password" placeholder="Passowrd" ng-model="password" class="form-control" />
+                    <button class="btn btn-default">Login</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div ng-view></div>
+
+    <script src="js/lib/everlive/src/everlive.all.js"></script>
+    <script src="js/lib/angular/angular.js"></script>
+    <script src="js/lib/angular-route/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/services/Backend.js"></script>
+    <script src="js/services/User.js"></script>
+    <script src="js/services/Pin.js"></script>
+    <script src="js/controllers/MainController.js"></script>
+    <script src="js/controllers/HomeController.js"></script>
+</body>
+</html>
