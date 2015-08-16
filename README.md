@@ -1,0 +1,1 @@
+# PinTELERest - Angular test project
