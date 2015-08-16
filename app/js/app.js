@@ -5,5 +5,8 @@ myApp.config(function($routeProvider) {
         .when('/home', {
             templateUrl: 'views/home.html'
         })
+        .when('/dashboard', {
+            templateUrl: 'views/dashboard.html'
+        })
         .otherwise({redirectTo: '/home'});
 });

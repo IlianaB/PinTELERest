@@ -11,6 +11,19 @@ myApp.factory('User', ['$q', 'Backend', function ($q, Backend) {
                 });
 
             return deferred.promise;
+        },
+
+        getCurrentUser: function () {
+            var deferred = $q.defer();
+
+            Backend.el.Users.currentUser()
+                .then(function (data) {
+                    deferred.resolve(data);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
         }
     }
 }]);
