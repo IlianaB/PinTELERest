@@ -1,0 +1,14 @@
+{
+  "name": "PinTELERest",
+  "version": "0.1.0",
+  "homepage": "https://github.com/IlianaB/PinTELERest",
+  "authors": [
+    "Iliana Bobeva <iliana.bobeva@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.4",
+    "angular-route": "~1.4.4",
+    "everlive": "~1.5.4"
+  }
+}
