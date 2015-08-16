@@ -1,3 +1,7 @@
+body {
+    padding-bottom: 82px;
+}
+
 .home .thumbnail > img,
 .dashboard .thumbnail > img {
     height: 200px;
@@ -11,8 +15,12 @@
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     background: #fff;
-    position: absolute;
+    position: fixed;
     padding: 20px;
     bottom: 0;
     width: 100%;
+}
+
+h3 {
+    margin-top: 0;
 }
