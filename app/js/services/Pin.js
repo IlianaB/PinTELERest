@@ -2,6 +2,35 @@ myApp.factory('Pin', ['$q', 'Backend', function ($q, Backend) {
     var pin = Backend.el.data('Pin');
     var vote = Backend.el.data('Vote');
 
+    function createVote(data, deferred) {
+        var pinId = data.result.Id;
+
+        vote.create({
+            Value: 0,
+            PinId: pinId
+        }).then(function (data) {
+            pin.update({
+                'Vote': data.result.Id
+            }, { Id: pinId })
+                .then(function (data) {
+                    deferred.resolve(data);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+        }, function (error) {
+            deferred.reject(error);
+        });
+    }
+
+    function deleteVote(pinId, deferred) {
+        vote.destroy({ 'PinId': pinId })
+            .then(function (data) {
+                deferred.resolve(data);
+            }, function (error) {
+                deferred.reject(error);
+            });
+    }
+
     return {
         getAll: function () {
             var deferred = $q.defer(),
@@ -59,7 +88,7 @@ myApp.factory('Pin', ['$q', 'Backend', function ($q, Backend) {
                 URL: url,
                 Category: category
             }).then(function (data) {
-                deferred.resolve(data);
+                createVote(data, deferred);
             }, function (error) {
                 deferred.reject(error);
             });
@@ -88,8 +117,8 @@ myApp.factory('Pin', ['$q', 'Backend', function ($q, Backend) {
             var deferred = $q.defer();
 
             pin.destroySingle({ Id: pinId })
-                .then(function (data) {
-                    deferred.resolve(data);
+                .then(function () {
+                    deleteVote(pinId, deferred);
                 }, function (error) {
                     deferred.reject(error);
                 });
