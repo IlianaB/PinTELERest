@@ -1,11 +1,19 @@
 myApp.factory('Pin', ['$q', 'Backend', function ($q, Backend) {
     var pin = Backend.el.data('Pin');
+    var vote = Backend.el.data('Vote');
 
     return {
         getAll: function () {
-            var deferred = $q.defer();
+            var deferred = $q.defer(),
+                expandExp = {
+                    "Vote": {
+                        "TargetTypeName": "Vote"
+                    }
+                };
+            var query = new Everlive.Query();
+            query.expand(expandExp);
 
-            pin.get().then(function (data) {
+            pin.get(query).then(function (data) {
                 deferred.resolve(data);
             }, function (error) {
                 deferred.reject(error);
@@ -66,7 +74,7 @@ myApp.factory('Pin', ['$q', 'Backend', function ($q, Backend) {
                 'Name': name,
                 'URL': url,
                 'Category': category
-            }, {Id: id})
+            }, { Id: id })
                 .then(function (data) {
                     deferred.resolve(data);
                 }, function (error) {
@@ -79,7 +87,21 @@ myApp.factory('Pin', ['$q', 'Backend', function ($q, Backend) {
         delete: function (pinId) {
             var deferred = $q.defer();
 
-            pin.destroySingle({Id: pinId})
+            pin.destroySingle({ Id: pinId })
+                .then(function (data) {
+                    deferred.resolve(data);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
+        },
+
+        vote: function (id, votes) {
+            var deferred = $q.defer();
+
+            vote.update({ 'Value': votes },
+                { PinId: id })
                 .then(function (data) {
                     deferred.resolve(data);
                 }, function (error) {
