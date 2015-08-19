@@ -21,6 +21,6 @@ myApp.controller('EditPinController', ['$scope', '$location', '$routeParams', 'P
                     $location.path('/dashboard');
                 }, function (error) {
                     console.log(error);
-                })
+                });
         };
     }]);

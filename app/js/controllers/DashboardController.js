@@ -19,5 +19,5 @@ myApp.controller('DashboardController', ['$scope', '$location', 'Pin', function 
             }, function (error) {
                 console.log(error);
             });
-    }
+    };
 }]);

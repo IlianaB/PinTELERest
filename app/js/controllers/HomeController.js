@@ -11,6 +11,6 @@ myApp.controller('HomeController', ['$scope', 'Pin', function ($scope, Pin) {
         Pin.vote(pin.Id, votes)
             .then(function (data) {
                 pin.Vote.Value = votes;
-            })
-    }
+            });
+    };
 }]);

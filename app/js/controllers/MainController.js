@@ -19,5 +19,5 @@ myApp.controller('MainController', ['$scope', 'User', function ($scope, User) {
             }, function (error) {
                 console.log(error);
             });
-    }
+    };
 }]);

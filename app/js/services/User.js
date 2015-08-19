@@ -54,5 +54,5 @@ myApp.factory('User', ['$q', 'Backend', function ($q, Backend) {
 
             return deferred.promise;
         }
-    }
+    };
 }]);

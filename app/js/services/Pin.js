@@ -139,5 +139,5 @@ myApp.factory('Pin', ['$q', 'Backend', function ($q, Backend) {
 
             return deferred.promise;
         }
-    }
+    };
 }]);

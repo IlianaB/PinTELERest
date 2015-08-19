@@ -3,5 +3,5 @@ myApp.factory('Backend', [function () {
 
     return {
         el: el
-    }
+    };
 }]);
