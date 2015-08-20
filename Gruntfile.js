@@ -8,12 +8,9 @@ module.exports = function (grunt) {
             all: ['app/js/**/*.js']
         },
 
-        connect: {
-            server: {
-                options: {
-                    port: 8080,
-                    base: 'app'
-                }
+        nodemon: {
+            dev: {
+                script: 'server.js'
             }
         },
 
@@ -34,12 +31,20 @@ module.exports = function (grunt) {
                 files: ['app/js/**/*.js'],
                 tasks: ['jshint']
             }
+        },
+
+        concurrent: {
+            options: {
+                logConcurrentOutput: true
+            },
+            tasks: ['nodemon', 'watch']
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-nodemon');
+    grunt.loadNpmTasks('grunt-concurrent');
 
-    grunt.registerTask('default', ['jshint', 'connect', 'watch']);
+    grunt.registerTask('default', ['jshint', 'concurrent']);
 };
